@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Pill } from "@/components/ui/pill";
 import { MediaPlaceholder } from "@/components/ui/media-placeholder";
+import { HeroVideo } from "./hero-video";
 
 const PILLARS = [
   "White Label",
@@ -79,12 +80,9 @@ export function Hero() {
 
           {/* Coluna visual — slot principal de mídia/animação */}
           <div className="anim-fade-up relative" style={anim(0.25)}>
-            <MediaPlaceholder
-              kind="animation"
-              label="Dashboard / animação do produto"
-              ratio="4/3"
-              className="shadow-lift"
-            />
+            <MediaPlaceholder kind="animation" ratio="4/3" className="shadow-lift">
+              <HeroVideo className="absolute inset-0 h-full w-full object-cover" />
+            </MediaPlaceholder>
 
             {/* Cards flutuantes — placeholders para microanimações/dados */}
             <FloatingCard
