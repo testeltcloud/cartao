@@ -3,13 +3,15 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Pill } from "@/components/ui/pill";
 import { MediaPlaceholder } from "@/components/ui/media-placeholder";
-import { HeroVideo } from "./hero-video";
+// Vídeo do hero temporariamente desativado (componente mantido para reativar depois).
+// import { HeroVideo } from "./hero-video";
 
 const PILLARS = [
   "White Label",
-  "White Label Master",
+  "Estrutura White Label",
   "Conciliação Inteligente",
   "IA de Expansão Comercial",
+  "Gestão de Taxas e Antecipação",
 ];
 
 /** Helper para a animação de entrada via CSS (classe + atraso). */
@@ -34,25 +36,26 @@ export function Hero() {
             <div className="anim-fade-up" style={anim(0)}>
               <Pill tone="accent" className="mb-6">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                Plataforma de operações de pagamento
+                Plataforma de gestão de cartões e white label
               </Pill>
             </div>
 
             <h1
-              className="anim-fade-up text-display font-semibold tracking-tight text-ink"
+              className="anim-fade-up text-display font-semibold text-ink"
               style={anim(0.08)}
             >
-              A plataforma para lançar e escalar operações de pagamento
+              Gestão completa para operações de cartões, sub-adquirente e{" "}
+              <span className="text-accent">white label</span>
             </h1>
 
             <p
               className="anim-fade-up mt-6 max-w-xl text-lg leading-relaxed text-muted"
               style={anim(0.16)}
             >
-              Crie sua própria subadquirente, fintech ou operação white label em
-              minutos. Uma plataforma completa para gestão de pagamentos,
-              conciliação, compliance, vendas e crescimento comercial, pronta
-              para operar com a sua marca.
+              Transforme sua marca em uma operação completa de cartões. Gerencie
+              cartões, estabelecimentos, vendas, conciliação, compliance,
+              antecipação e performance comercial em uma plataforma white label
+              preparada para crescer junto com o seu negócio.
             </p>
 
             <div
@@ -80,8 +83,15 @@ export function Hero() {
 
           {/* Coluna visual — slot principal de mídia/animação */}
           <div className="anim-fade-up relative" style={anim(0.25)}>
-            <MediaPlaceholder kind="animation" ratio="4/3" className="shadow-lift">
+            <MediaPlaceholder
+              kind="animation"
+              label="Dashboard / animação do produto"
+              ratio="4/3"
+              className="shadow-lift"
+            >
+              {/* Vídeo temporariamente desativado — reativar quando estiver pronto:
               <HeroVideo className="absolute inset-0 h-full w-full object-cover" />
+              */}
             </MediaPlaceholder>
 
             {/* Cards flutuantes — placeholders para microanimações/dados */}

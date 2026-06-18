@@ -49,8 +49,8 @@ const DIFERENCIAIS = [
   "Tecnologia White Label e White Label Master nativa",
   "Arquitetura cloud native e multi-tenant",
   "Conciliação por captura, EDI e bancária",
-  "Pré-compliance e antifraude integrados",
-  "Integração com registradoras (CERC e Núclea)",
+  "Monitoramento de risco e pré-compliance integrados",
+  "Integração com registradoras (CERC)",
   "Plataforma 100% web, escalável e segura",
 ];
 
@@ -85,8 +85,8 @@ export default function InstitucionalPage() {
                   pronta para operar com a sua marca.
                 </p>
                 <p>
-                  Da captura ao repasse, da prevenção de fraude à estruturação
-                  de recebíveis, entregamos a base tecnológica para
+                  Da captura ao repasse, do monitoramento de risco à
+                  estruturação de recebíveis, entregamos a base tecnológica para
                   subadquirentes, fintechs, bancos digitais e redes comerciais
                   crescerem com previsibilidade.
                 </p>

@@ -25,18 +25,20 @@
   --color-accent-strong: #0a5749;
   --color-accent-soft: #eaf3f0;
 
-  /* Fonte principal (definida no layout via next/font) */
+  /* Fontes (definidas no layout via next/font) */
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: var(--font-display), var(--font-sans), ui-sans-serif,
+    sans-serif;
 
   /* Tipografia de display (clamp responsivo) */
-  --text-display: clamp(2.5rem, 5.2vw, 4.25rem);
-  --text-display--line-height: 1.04;
-  --text-display--letter-spacing: -0.025em;
+  --text-display: clamp(2.5rem, 5.2vw, 4.5rem);
+  --text-display--line-height: 1.07;
+  --text-display--letter-spacing: -0.02em;
 
   --text-h2: clamp(1.875rem, 3.2vw, 2.75rem);
-  --text-h2--line-height: 1.1;
-  --text-h2--letter-spacing: -0.02em;
+  --text-h2--line-height: 1.14;
+  --text-h2--letter-spacing: -0.015em;
 
   /* Sombras suaves (sem brilho exagerado) */
   --shadow-soft: 0 1px 2px rgba(14, 23, 38, 0.04),
@@ -82,6 +84,11 @@
     text-wrap: balance;
   }
 
+  /* Títulos usam a fonte de display (mais caráter); corpo segue em Inter. */
+  h1, h2 {
+    font-family: var(--font-display);
+  }
+
   p {
     text-wrap: pretty;
   }
@@ -107,7 +114,7 @@
 @layer components {
   .container-page {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1600px;
     margin-inline: auto;
     padding-inline: var(--spacing-gutter);
   }

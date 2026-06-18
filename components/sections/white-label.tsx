@@ -5,13 +5,10 @@ import { MediaPlaceholder } from "@/components/ui/media-placeholder";
 import { FadeIn } from "@/components/motion";
 
 const RECURSOS = [
-  "Multiempresa",
-  "Multiadquirente",
-  "Multiusuário",
-  "Gestão hierárquica",
-  "Controle por marca",
-  "Gestão independente por operação",
-  "Portal administrativo dedicado",
+  "Gestão de gestores, vendedores e equipes comerciais",
+  "Estrutura de unidades internas e regionais",
+  "Acompanhamento de metas e desempenho",
+  "Personalização de tema, marca e domínio",
 ];
 
 export function WhiteLabel() {
@@ -20,9 +17,9 @@ export function WhiteLabel() {
       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <SectionHeading
-            eyebrow="White Label Master"
-            title="Crie sua própria rede de operações White Label"
-            lead="Nossa estrutura permite criar uma operação completa com a sua marca e, além disso, distribuir novas operações White Label para parceiros, representantes e grupos comerciais."
+            eyebrow="Estrutura White Label"
+            title="Estrutura White Label"
+            lead="Organize sua operação com uma estrutura pensada para gestão, expansão comercial e personalização da sua marca. A plataforma permite configurar ambientes White Label com mais controle sobre times, unidades e identidade visual, mantendo uma operação mais organizada e alinhada ao seu modelo de negócio."
             maxWidth="max-w-xl"
           />
           <FadeIn delay={0.1} className="mt-8">

@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/hero";
 import { Audience } from "@/components/sections/audience";
 import { WhiteLabel } from "@/components/sections/white-label";
 import { Commercial } from "@/components/sections/commercial";
+import { Financial } from "@/components/sections/financial";
 import { Reconciliation } from "@/components/sections/reconciliation";
 import { AiExpansion } from "@/components/sections/ai-expansion";
 import { Compliance } from "@/components/sections/compliance";
@@ -36,6 +37,7 @@ export default function Home() {
         <Audience />
         <WhiteLabel />
         <Commercial />
+        <Financial />
         <Reconciliation />
         <AiExpansion />
         <Compliance />

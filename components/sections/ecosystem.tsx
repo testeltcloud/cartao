@@ -1,7 +1,6 @@
 import {
   Database,
   Building2,
-  Server,
   Webhook,
   Cpu,
   ScanLine,
@@ -16,7 +15,6 @@ import { Pill } from "@/components/ui/pill";
 const INTEGRATIONS = [
   { icon: Database, title: "Registradoras de recebíveis" },
   { icon: Building2, title: "CERC" },
-  { icon: Server, title: "Núclea" },
   { icon: Webhook, title: "APIs financeiras" },
   { icon: Cpu, title: "Motores de liquidação" },
   { icon: ScanLine, title: "Sistemas de captura" },
@@ -26,7 +24,6 @@ const INTEGRATIONS = [
 /** Nomes para a faixa rolante (placeholders — troque por logos reais). */
 const MARQUEE = [
   "CERC",
-  "Núclea",
   "Registradoras",
   "APIs Financeiras",
   "Motores de Liquidação",

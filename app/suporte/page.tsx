@@ -40,7 +40,7 @@ const FAQ = [
   },
   {
     q: "Vocês integram com registradoras de recebíveis?",
-    a: "Sim, oferecemos integração nativa com as principais registradoras, como CERC e Núclea.",
+    a: "Sim, oferecemos integração nativa com as principais registradoras de recebíveis, como a CERC.",
   },
 ];
 

@@ -9,17 +9,20 @@ import { Logo } from "./logo";
 import { Button } from "@/components/ui/button";
 
 const SOLUCOES = [
+  { label: "Estrutura White Label", href: "/solucoes/estrutura-white-label" },
+  { label: "Controle de Acesso e Permissões", href: "/solucoes/controle-de-acesso" },
+  { label: "Gestão Comercial", href: "/solucoes/gestao-comercial" },
+  { label: "Antecipação de Recebíveis", href: "/solucoes/antecipacao-de-recebiveis" },
   { label: "Conciliação", href: "/solucoes/conciliacao" },
-  { label: "POS e TEF", href: "/solucoes/pos-e-tef" },
-  { label: "Antifraude", href: "/solucoes/antifraude" },
-  { label: "Orquestração de Pagamento", href: "/solucoes/orquestracao" },
   { label: "Registradora de Recebíveis", href: "/solucoes/registradora" },
+  { label: "Dashboards e Relatórios", href: "/solucoes/dashboards-e-relatorios" },
+  { label: "Inteligência de Mercado e Operação", href: "/solucoes/inteligencia-de-mercado" },
+  { label: "Monitoramento de Risco", href: "/solucoes/monitoramento-de-risco" },
 ];
 
 const NAV = [
   { label: "Início", href: "/" },
   { label: "Institucional", href: "/institucional" },
-  { label: "Produtos", href: "/produtos" },
   { label: "Soluções", href: "/solucoes", children: SOLUCOES },
   { label: "Blog", href: "/blog" },
   { label: "Suporte", href: "/suporte" },
@@ -82,8 +85,8 @@ export function Header() {
                     />
                   </Link>
                   {/* Painel do dropdown (CSS hover + focus-within) */}
-                  <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 translate-y-1 pt-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                    <div className="overflow-hidden rounded-2xl border border-line bg-background p-2 shadow-lift">
+                  <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 translate-y-1 pt-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                    <div className="max-h-[70vh] overflow-y-auto rounded-2xl border border-line bg-background p-2 shadow-lift">
                       {item.children.map((c) => (
                         <Link
                           key={c.href}

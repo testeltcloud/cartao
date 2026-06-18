@@ -12,7 +12,7 @@ import { solutions } from "@/lib/solutions";
 export const metadata: Metadata = {
   title: "Soluções",
   description:
-    "Conciliação, POS e TEF, antifraude, orquestração de pagamento e registradora de recebíveis: tudo em uma plataforma.",
+    "Estrutura White Label, controle de acesso, gestão comercial, antecipação de recebíveis, conciliação, registradora, dashboards e monitoramento de risco: tudo em uma plataforma.",
   alternates: { canonical: "/solucoes" },
 };
 

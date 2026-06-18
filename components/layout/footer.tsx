@@ -6,18 +6,18 @@ const COLUMNS = [
   {
     title: "Soluções",
     links: [
+      { label: "Estrutura White Label", href: "/solucoes/estrutura-white-label" },
+      { label: "Gestão Comercial", href: "/solucoes/gestao-comercial" },
+      { label: "Antecipação de Recebíveis", href: "/solucoes/antecipacao-de-recebiveis" },
       { label: "Conciliação", href: "/solucoes/conciliacao" },
-      { label: "POS e TEF", href: "/solucoes/pos-e-tef" },
-      { label: "Antifraude", href: "/solucoes/antifraude" },
-      { label: "Orquestração de Pagamento", href: "/solucoes/orquestracao" },
       { label: "Registradora de Recebíveis", href: "/solucoes/registradora" },
+      { label: "Monitoramento de Risco", href: "/solucoes/monitoramento-de-risco" },
     ],
   },
   {
     title: "Empresa",
     links: [
       { label: "Institucional", href: "/institucional" },
-      { label: "Produtos", href: "/produtos" },
       { label: "Blog", href: "/blog" },
       { label: "Suporte", href: "/suporte" },
     ],

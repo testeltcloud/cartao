@@ -74,20 +74,18 @@ export default async function ArticlePage({ params }: Params) {
               className="mt-8"
             />
 
-            {/* Corpo do artigo (placeholder — troque pelo conteúdo real / MDX) */}
+            {/* Corpo do artigo */}
             <div className="mt-10 space-y-5 text-lg leading-relaxed text-ink-soft">
-              <p className="text-xl font-medium text-ink">{post.excerpt}</p>
-              <p>
-                Este é um conteúdo de exemplo. Substitua por seu artigo real
-                (texto, imagens, listas e citações). A estrutura de tipografia,
-                espaçamento e responsividade já está pronta para receber o
-                conteúdo definitivo.
-              </p>
-              <p>
-                Você pode conectar este espaço a um CMS ou a arquivos MDX
-                mantendo os mesmos campos de <em>slug</em>, título, resumo, data,
-                autor e categoria já definidos.
-              </p>
+              {post.content.map((paragraph, i) => (
+                <p
+                  key={i}
+                  className={
+                    i === 0 ? "text-xl font-medium text-ink" : undefined
+                  }
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </Container>
         </article>
