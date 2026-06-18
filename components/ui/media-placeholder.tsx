@@ -54,7 +54,7 @@ export function MediaPlaceholder({
         <div
           className={cn(
             "absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center",
-            onDark ? "text-white/40" : "text-faint"
+            onDark ? "text-white/55" : "text-faint"
           )}
         >
           <div

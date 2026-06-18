@@ -13,8 +13,8 @@
   /* Tinta / texto */
   --color-ink: #0e1726;
   --color-ink-soft: #26303f;
-  --color-muted: #5b6675;
-  --color-faint: #8a93a1;
+  --color-muted: #56606f;
+  --color-faint: #646d7c;
 
   /* Linhas e bordas */
   --color-line: #e5e8ec;
@@ -156,4 +156,72 @@
 }
 .marquee-pause:hover .animate-marquee {
   animation-play-state: paused;
+}
+
+/* ============================================================
+   Reveal on scroll (CSS + IntersectionObserver, sem libs JS)
+   Progressive enhancement: só esconde quando há JS (html.js).
+   Sem JS → conteúdo totalmente visível.
+   ============================================================ */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 18px));
+  transition: opacity 0.7s var(--ease-out-soft),
+    transform 0.7s var(--ease-out-soft);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+html.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Entrada escalonada dos filhos diretos de [data-stagger] */
+html.js [data-stagger] > * {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 18px));
+  transition: opacity 0.6s var(--ease-out-soft),
+    transform 0.6s var(--ease-out-soft);
+}
+html.js [data-stagger].is-in > * {
+  opacity: 1;
+  transform: none;
+}
+html.js [data-stagger].is-in > *:nth-child(1) { transition-delay: calc(var(--stagger-gap, 0.08s) * 0 + var(--stagger-delay, 0s)); }
+html.js [data-stagger].is-in > *:nth-child(2) { transition-delay: calc(var(--stagger-gap, 0.08s) * 1 + var(--stagger-delay, 0s)); }
+html.js [data-stagger].is-in > *:nth-child(3) { transition-delay: calc(var(--stagger-gap, 0.08s) * 2 + var(--stagger-delay, 0s)); }
+html.js [data-stagger].is-in > *:nth-child(4) { transition-delay: calc(var(--stagger-gap, 0.08s) * 3 + var(--stagger-delay, 0s)); }
+html.js [data-stagger].is-in > *:nth-child(5) { transition-delay: calc(var(--stagger-gap, 0.08s) * 4 + var(--stagger-delay, 0s)); }
+html.js [data-stagger].is-in > *:nth-child(6) { transition-delay: calc(var(--stagger-gap, 0.08s) * 5 + var(--stagger-delay, 0s)); }
+html.js [data-stagger].is-in > *:nth-child(7) { transition-delay: calc(var(--stagger-gap, 0.08s) * 6 + var(--stagger-delay, 0s)); }
+html.js [data-stagger].is-in > *:nth-child(8) { transition-delay: calc(var(--stagger-gap, 0.08s) * 7 + var(--stagger-delay, 0s)); }
+html.js [data-stagger].is-in > *:nth-child(n + 9) { transition-delay: calc(var(--stagger-gap, 0.08s) * 8 + var(--stagger-delay, 0s)); }
+
+/* Entrada do hero (animação no load, acima da dobra) */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+html.js .anim-fade-up {
+  opacity: 0;
+  animation: fade-up 0.8s var(--ease-out-soft) both;
+  animation-delay: var(--anim-delay, 0s);
+}
+
+/* Movimento reduzido: tudo aparece instantâneo e visível */
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal],
+  html.js [data-stagger] > *,
+  html.js .anim-fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
 }

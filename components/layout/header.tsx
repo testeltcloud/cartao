@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "./logo";
@@ -83,48 +82,48 @@ export function Header() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="border-b border-line bg-background lg:hidden"
-          >
-            <div className="container-page flex flex-col gap-1 py-4">
-              {NAV.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-xl px-3 py-3 text-base text-ink-soft transition-colors hover:bg-surface"
-                >
-                  {item.label}
-                </a>
-              ))}
-              <div className="mt-3 flex flex-col gap-2">
-                <Button
-                  href="#contato"
-                  variant="outline"
-                  size="md"
-                  onClick={() => setOpen(false)}
-                >
-                  Falar com Especialista
-                </Button>
-                <Button
-                  href="#contato"
-                  variant="primary"
-                  size="md"
-                  onClick={() => setOpen(false)}
-                >
-                  Solicitar Demonstração
-                </Button>
-              </div>
-            </div>
-          </motion.div>
+      {/* Menu mobile — animação de altura via grid-rows (CSS puro) */}
+      <div
+        className={cn(
+          "grid overflow-hidden bg-background transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden",
+          open
+            ? "grid-rows-[1fr] border-b border-line opacity-100"
+            : "grid-rows-[0fr] border-b border-transparent opacity-0"
         )}
-      </AnimatePresence>
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className="container-page flex flex-col gap-1 py-4">
+            {NAV.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="rounded-xl px-3 py-3 text-base text-ink-soft transition-colors hover:bg-surface"
+              >
+                {item.label}
+              </a>
+            ))}
+            <div className="mt-3 flex flex-col gap-2">
+              <Button
+                href="#contato"
+                variant="outline"
+                size="md"
+                onClick={() => setOpen(false)}
+              >
+                Falar com Especialista
+              </Button>
+              <Button
+                href="#contato"
+                variant="primary"
+                size="md"
+                onClick={() => setOpen(false)}
+              >
+                Solicitar Demonstração
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
   );
 }

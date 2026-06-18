@@ -61,6 +61,14 @@ export default function RootLayout({
       className={`${sans.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-ink flex flex-col overflow-x-hidden">
+        {/* Progressive enhancement: marca que há JS antes da primeira pintura,
+            para que as animações de reveal só escondam conteúdo quando puderem
+            revelá-lo. Sem JS, tudo aparece normalmente. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
         {children}
       </body>
     </html>

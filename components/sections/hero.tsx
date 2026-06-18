@@ -1,13 +1,8 @@
-"use client";
-
-import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, ShieldCheck, TrendingUp, Layers } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Pill } from "@/components/ui/pill";
 import { MediaPlaceholder } from "@/components/ui/media-placeholder";
-
-const EASE = [0.22, 1, 0.36, 1] as const;
 
 const PILLARS = [
   "White Label",
@@ -16,15 +11,12 @@ const PILLARS = [
   "IA de Expansão Comercial",
 ];
 
+/** Helper para a animação de entrada via CSS (classe + atraso). */
+function anim(delay: number): React.CSSProperties {
+  return { "--anim-delay": `${delay}s` } as React.CSSProperties;
+}
+
 export function Hero() {
-  const reduce = useReducedMotion();
-
-  const fade = (delay: number) => ({
-    initial: { opacity: 0, y: reduce ? 0 : 22 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, delay, ease: EASE },
-  });
-
   return (
     <section
       id="top"
@@ -38,42 +30,42 @@ export function Hero() {
         <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           {/* Coluna de texto */}
           <div className="max-w-2xl">
-            <motion.div {...fade(0)}>
+            <div className="anim-fade-up" style={anim(0)}>
               <Pill tone="accent" className="mb-6">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                 Plataforma de operações de pagamento
               </Pill>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              {...fade(0.08)}
-              className="text-display font-semibold tracking-tight text-ink"
+            <h1
+              className="anim-fade-up text-display font-semibold tracking-tight text-ink"
+              style={anim(0.08)}
             >
               A plataforma para lançar e escalar operações de pagamento
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              {...fade(0.16)}
-              className="mt-6 max-w-xl text-lg leading-relaxed text-muted"
+            <p
+              className="anim-fade-up mt-6 max-w-xl text-lg leading-relaxed text-muted"
+              style={anim(0.16)}
             >
               Crie sua própria subadquirente, fintech ou operação white label em
               minutos. Uma plataforma completa para gestão de pagamentos,
               conciliação, compliance, vendas e crescimento comercial — pronta
               para operar com a sua marca.
-            </motion.p>
+            </p>
 
-            <motion.div
-              {...fade(0.24)}
-              className="mt-7 flex flex-wrap gap-2"
+            <div
+              className="anim-fade-up mt-7 flex flex-wrap gap-2"
+              style={anim(0.24)}
             >
               {PILLARS.map((p) => (
                 <Pill key={p}>{p}</Pill>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div
-              {...fade(0.32)}
-              className="mt-9 flex flex-col gap-3 sm:flex-row"
+            <div
+              className="anim-fade-up mt-9 flex flex-col gap-3 sm:flex-row"
+              style={anim(0.32)}
             >
               <Button href="#contato" variant="primary" size="lg">
                 Solicitar Demonstração
@@ -82,16 +74,11 @@ export function Hero() {
               <Button href="#contato" variant="outline" size="lg">
                 Falar com Especialista
               </Button>
-            </motion.div>
+            </div>
           </div>
 
           {/* Coluna visual — slot principal de mídia/animação */}
-          <motion.div
-            initial={{ opacity: 0, y: reduce ? 0 : 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.25, ease: EASE }}
-            className="relative"
-          >
+          <div className="anim-fade-up relative" style={anim(0.25)}>
             <MediaPlaceholder
               kind="animation"
               label="Dashboard / animação do produto"
@@ -106,25 +93,22 @@ export function Hero() {
               title="TPV em tempo real"
               value="R$ 0,00"
               delay={0.6}
-              reduce={!!reduce}
             />
             <FloatingCard
               className="-right-3 bottom-10 sm:-right-6"
               icon={ShieldCheck}
               title="Pré-compliance"
               value="Monitorando"
-              delay={0.8}
-              reduce={!!reduce}
+              delay={0.75}
             />
             <FloatingCard
               className="left-6 -bottom-5"
               icon={Layers}
               title="Operações White Label"
               value="Multiempresa"
-              delay={1}
-              reduce={!!reduce}
+              delay={0.9}
             />
-          </motion.div>
+          </div>
         </div>
       </Container>
     </section>
@@ -137,21 +121,17 @@ function FloatingCard({
   title,
   value,
   delay,
-  reduce,
 }: {
   className?: string;
   icon: React.ElementType;
   title: string;
   value: string;
   delay: number;
-  reduce: boolean;
 }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: reduce ? 0 : 14, scale: reduce ? 1 : 0.96 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.6, delay, ease: EASE }}
-      className={`absolute hidden items-center gap-3 rounded-xl border border-line bg-background/90 px-3.5 py-3 shadow-lift backdrop-blur-sm sm:flex ${className}`}
+    <div
+      style={anim(delay)}
+      className={`anim-fade-up absolute hidden items-center gap-3 rounded-xl border border-line bg-background/90 px-3.5 py-3 shadow-lift backdrop-blur-sm sm:flex ${className}`}
     >
       <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent">
         <Icon className="h-4 w-4" strokeWidth={1.8} aria-hidden />
@@ -162,6 +142,6 @@ function FloatingCard({
         </p>
         <p className="text-sm font-semibold text-ink">{value}</p>
       </div>
-    </motion.div>
+    </div>
   );
 }

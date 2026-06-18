@@ -39,7 +39,7 @@ export function Footer() {
             <div className="text-white">
               <Logo />
             </div>
-            <p className="mt-5 text-sm leading-relaxed text-white/55">
+            <p className="mt-5 text-sm leading-relaxed text-white/65">
               A plataforma completa para lançar, operar e escalar operações de
               pagamento com a sua marca.
             </p>
@@ -47,7 +47,7 @@ export function Footer() {
 
           {COLUMNS.map((col) => (
             <div key={col.title}>
-              <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-white/40">
+              <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-white/60">
                 {col.title}
               </h4>
               <ul className="mt-4 space-y-3">
@@ -66,7 +66,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 text-sm text-white/45 sm:flex-row sm:items-center">
+        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 text-sm text-white/60 sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} Pagare. Todos os direitos reservados.</p>
           <div className="flex gap-6">
             <a href="#" className="transition-colors hover:text-white/80">
