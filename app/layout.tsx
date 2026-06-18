@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { RevealController } from "@/components/reveal-controller";
 
 const sans = Inter({
   variable: "--font-sans",
@@ -70,6 +71,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <RevealController />
       </body>
     </html>
   );

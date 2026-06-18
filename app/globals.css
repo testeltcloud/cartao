@@ -169,7 +169,6 @@ html.js [data-reveal] {
   transition: opacity 0.7s var(--ease-out-soft),
     transform 0.7s var(--ease-out-soft);
   transition-delay: var(--reveal-delay, 0s);
-  will-change: opacity, transform;
 }
 html.js [data-reveal].is-in {
   opacity: 1;

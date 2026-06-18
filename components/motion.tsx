@@ -1,63 +1,15 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 /* ------------------------------------------------------------------
-   Reveal on scroll sem dependências de animação.
-   Usa um único IntersectionObserver compartilhado + classes CSS.
-   A API (FadeIn / Stagger / StaggerItem / HoverLift) é mantida para
-   não exigir mudanças nas seções.
+   Componentes de reveal — agora SERVER COMPONENTS (zero JS/hidratação).
+   Eles apenas marcam o DOM com data-attributes + CSS vars.
+   Um único <RevealController> (client) observa tudo de uma vez.
+   A API (FadeIn / Stagger / StaggerItem / HoverLift) é mantida.
    ------------------------------------------------------------------ */
-
-let sharedObserver: IntersectionObserver | null = null;
-const callbacks = new WeakMap<Element, () => void>();
-
-function getObserver(): IntersectionObserver | null {
-  if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-    return null;
-  }
-  if (!sharedObserver) {
-    sharedObserver = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            callbacks.get(entry.target)?.();
-            sharedObserver!.unobserve(entry.target);
-            callbacks.delete(entry.target);
-          }
-        }
-      },
-      { rootMargin: "0px 0px -80px 0px", threshold: 0.01 }
-    );
-  }
-  return sharedObserver;
-}
-
-function useReveal<T extends HTMLElement>() {
-  const ref = useRef<T>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const reveal = () => el.classList.add("is-in");
-    const obs = getObserver();
-    if (!obs) {
-      reveal(); // sem suporte a IO → mostra direto
-      return;
-    }
-    callbacks.set(el, reveal);
-    obs.observe(el);
-    return () => {
-      obs.unobserve(el);
-      callbacks.delete(el);
-    };
-  }, []);
-  return ref;
-}
 
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
-/** Fade + leve subida ao entrar na viewport. */
+/** Fade + leve subida ao entrar na viewport (animado via CSS). */
 export function FadeIn({
   children,
   delay = 0,
@@ -66,10 +18,8 @@ export function FadeIn({
   style,
   ...rest
 }: DivProps & { delay?: number; y?: number }) {
-  const ref = useReveal<HTMLDivElement>();
   return (
     <div
-      ref={ref}
       data-reveal
       className={className}
       style={
@@ -95,10 +45,8 @@ export function Stagger({
   style,
   ...rest
 }: DivProps & { gap?: number; delay?: number }) {
-  const ref = useReveal<HTMLDivElement>();
   return (
     <div
-      ref={ref}
       data-stagger
       className={className}
       style={
@@ -133,7 +81,7 @@ export function StaggerItem({
   );
 }
 
-/** Realce sutil ao passar o mouse (CSS puro, sem JS). */
+/** Realce sutil ao passar o mouse (CSS puro). */
 export function HoverLift({ children, className, ...rest }: DivProps) {
   return (
     <div
