@@ -32,7 +32,7 @@
     sans-serif;
 
   /* Tipografia de display (clamp responsivo) */
-  --text-display: clamp(2.5rem, 5.2vw, 4.5rem);
+  --text-display: clamp(2.125rem, 5.2vw, 4.5rem);
   --text-display--line-height: 1.07;
   --text-display--letter-spacing: -0.02em;
 
@@ -50,7 +50,7 @@
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Container */
-  --spacing-gutter: 1.5rem;
+  --spacing-gutter: clamp(1.5rem, 5vw, 5rem);
 }
 
 /* ============================================================

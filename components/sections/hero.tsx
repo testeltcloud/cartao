@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight, ShieldCheck, TrendingUp, Layers } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
@@ -83,34 +84,34 @@ export function Hero() {
 
           {/* Coluna visual — slot principal de mídia/animação */}
           <div className="anim-fade-up relative" style={anim(0.25)}>
-            <MediaPlaceholder
-              kind="animation"
-              label="Dashboard / animação do produto"
-              ratio="4/3"
-              className="shadow-lift"
-            >
-              {/* Vídeo temporariamente desativado — reativar quando estiver pronto:
-              <HeroVideo className="absolute inset-0 h-full w-full object-cover" />
-              */}
+            <MediaPlaceholder kind="animation" ratio="18/12" className="shadow-lift">
+              <Image
+               src="/Gemini_Generated_Image_mb46dvmb46dvmb46.png"
+                alt="Operação de cartões e white label da LTCard"
+                fill
+                priority
+                sizes="(max-width: 1224px) 92vw, 56vw"
+                className="object-cover"
+              />
             </MediaPlaceholder>
 
             {/* Cards flutuantes — placeholders para microanimações/dados */}
             <FloatingCard
-              className="-left-4 top-10 sm:-left-8"
+              className="left-4 top-4"
               icon={TrendingUp}
               title="TPV em tempo real"
               value="R$ 0,00"
               delay={0.6}
             />
             <FloatingCard
-              className="-right-3 bottom-10 sm:-right-6"
+              className="right-4 bottom-4"
               icon={ShieldCheck}
               title="Pré-compliance"
               value="Monitorando"
               delay={0.75}
             />
             <FloatingCard
-              className="left-6 -bottom-5"
+              className="left-4 bottom-4"
               icon={Layers}
               title="Operações White Label"
               value="Multiempresa"
@@ -139,7 +140,7 @@ function FloatingCard({
   return (
     <div
       style={anim(delay)}
-      className={`anim-fade-up absolute hidden items-center gap-3 rounded-xl border border-line bg-background/90 px-3.5 py-3 shadow-lift backdrop-blur-sm sm:flex ${className}`}
+      className={`anim-fade-up absolute hidden items-center gap-3 rounded-xl border border-line bg-background/90 px-3.5 py-3 shadow-lift backdrop-blur-sm lg:flex ${className}`}
     >
       <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent">
         <Icon className="h-4 w-4" strokeWidth={1.8} aria-hidden />
