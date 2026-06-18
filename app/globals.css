@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Design tokens — paleta sóbria, sem gradientes nem cores
+   gritantes. Base neutra (branco / grafite) + 1 acento discreto.
+   ============================================================ */
+@theme {
+  /* Superfícies */
+  --color-background: #ffffff;
+  --color-surface: #f6f7f9;
+  --color-surface-2: #eef1f4;
+
+  /* Tinta / texto */
+  --color-ink: #0e1726;
+  --color-ink-soft: #26303f;
+  --color-muted: #5b6675;
+  --color-faint: #8a93a1;
+
+  /* Linhas e bordas */
+  --color-line: #e5e8ec;
+  --color-line-strong: #d4d9e0;
+
+  /* Acento único (teal grafite, dessaturado) */
+  --color-accent: #0e7361;
+  --color-accent-strong: #0a5749;
+  --color-accent-soft: #eaf3f0;
+
+  /* Fonte principal (definida no layout via next/font) */
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Tipografia de display (clamp responsivo) */
+  --text-display: clamp(2.5rem, 5.2vw, 4.25rem);
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.025em;
+
+  --text-h2: clamp(1.875rem, 3.2vw, 2.75rem);
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.02em;
+
+  /* Sombras suaves (sem brilho exagerado) */
+  --shadow-soft: 0 1px 2px rgba(14, 23, 38, 0.04),
+    0 8px 24px -12px rgba(14, 23, 38, 0.12);
+  --shadow-lift: 0 1px 2px rgba(14, 23, 38, 0.05),
+    0 18px 48px -20px rgba(14, 23, 38, 0.22);
+
+  /* Easing padrão */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Container */
+  --spacing-gutter: 1.5rem;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: #fff;
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Respeita usuários que pedem menos movimento */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+/* ============================================================
+   Utilitários
+   ============================================================ */
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: var(--spacing-gutter);
+  }
+
+  /* Grade pontilhada / linhas sutis de fundo (sem cor gritante) */
+  .bg-grid {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(14, 23, 38, 0.06) 1px,
+      transparent 0
+    );
+    background-size: 28px 28px;
+  }
+
+  .bg-grid-lines {
+    background-image: linear-gradient(
+        to right,
+        rgba(14, 23, 38, 0.04) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(14, 23, 38, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}
+
+/* Esconde scrollbar horizontal em faixas com marquee */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Marquee (faixa de integrações / logos) */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+.marquee-pause:hover .animate-marquee {
+  animation-play-state: paused;
+}
