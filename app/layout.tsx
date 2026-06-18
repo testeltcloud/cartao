@@ -60,6 +60,7 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       className={`${sans.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full bg-background text-ink flex flex-col overflow-x-hidden">
         {/* Progressive enhancement: marca que há JS antes da primeira pintura,

@@ -5,27 +5,27 @@ const COLUMNS = [
   {
     title: "Plataforma",
     links: [
-      { label: "White Label Master", href: "#white-label" },
-      { label: "Gestão Comercial", href: "#comercial" },
-      { label: "Conciliação Inteligente", href: "#conciliacao" },
-      { label: "IA de Expansão", href: "#ia" },
-      { label: "Pré-Compliance", href: "#compliance" },
+      { label: "White Label Master", href: "/#white-label" },
+      { label: "Gestão Comercial", href: "/#comercial" },
+      { label: "Conciliação Inteligente", href: "/#conciliacao" },
+      { label: "IA de Expansão", href: "/#ia" },
+      { label: "Pré-Compliance", href: "/#compliance" },
     ],
   },
   {
     title: "Empresa",
     links: [
-      { label: "Para quem é", href: "#para-quem" },
-      { label: "Tecnologia", href: "#tecnologia" },
-      { label: "Diferenciais", href: "#diferenciais" },
-      { label: "Ecossistema", href: "#ecossistema" },
+      { label: "Para quem é", href: "/#para-quem" },
+      { label: "Tecnologia", href: "/#tecnologia" },
+      { label: "Diferenciais", href: "/#diferenciais" },
+      { label: "Blog", href: "/blog" },
     ],
   },
   {
     title: "Contato",
     links: [
-      { label: "Solicitar Demonstração", href: "#contato" },
-      { label: "Falar com Especialista", href: "#contato" },
+      { label: "Solicitar Demonstração", href: "/#contato" },
+      { label: "Falar com Especialista", href: "/#contato" },
     ],
   },
 ];
@@ -47,9 +47,9 @@ export function Footer() {
 
           {COLUMNS.map((col) => (
             <div key={col.title}>
-              <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-white/60">
+              <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-white/60">
                 {col.title}
-              </h4>
+              </h2>
               <ul className="mt-4 space-y-3">
                 {col.links.map((link) => (
                   <li key={link.label}>

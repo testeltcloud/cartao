@@ -1,18 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "./logo";
 import { Button } from "@/components/ui/button";
 
+// Âncoras com prefixo "/" para funcionar a partir de qualquer rota (ex.: /blog).
 const NAV = [
-  { label: "Plataforma", href: "#para-quem" },
-  { label: "White Label", href: "#white-label" },
-  { label: "Comercial", href: "#comercial" },
-  { label: "Conciliação", href: "#conciliacao" },
-  { label: "IA & Risco", href: "#ia" },
-  { label: "Tecnologia", href: "#tecnologia" },
+  { label: "Plataforma", href: "/#para-quem" },
+  { label: "White Label", href: "/#white-label" },
+  { label: "Comercial", href: "/#comercial" },
+  { label: "Conciliação", href: "/#conciliacao" },
+  { label: "IA & Risco", href: "/#ia" },
+  { label: "Tecnologia", href: "/#tecnologia" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export function Header() {
@@ -45,27 +48,27 @@ export function Header() {
         )}
       >
         <div className="container-page flex h-16 items-center justify-between lg:h-18">
-          <a href="#top" className="shrink-0" aria-label="Pagare — início">
+          <Link href="/" className="shrink-0" aria-label="Pagare — início">
             <Logo />
-          </a>
+          </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
             {NAV.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 className="rounded-full px-3.5 py-2 text-sm text-muted transition-colors hover:bg-surface hover:text-ink"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
           <div className="hidden items-center gap-2 lg:flex">
-            <Button href="#contato" variant="ghost" size="sm">
+            <Button href="/#contato" variant="ghost" size="sm">
               Falar com Especialista
             </Button>
-            <Button href="#contato" variant="primary" size="sm">
+            <Button href="/#contato" variant="primary" size="sm">
               Solicitar Demonstração
             </Button>
           </div>
@@ -94,18 +97,18 @@ export function Header() {
         <div className="min-h-0 overflow-hidden">
           <div className="container-page flex flex-col gap-1 py-4">
             {NAV.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className="rounded-xl px-3 py-3 text-base text-ink-soft transition-colors hover:bg-surface"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <div className="mt-3 flex flex-col gap-2">
               <Button
-                href="#contato"
+                href="/#contato"
                 variant="outline"
                 size="md"
                 onClick={() => setOpen(false)}
@@ -113,7 +116,7 @@ export function Header() {
                 Falar com Especialista
               </Button>
               <Button
-                href="#contato"
+                href="/#contato"
                 variant="primary"
                 size="md"
                 onClick={() => setOpen(false)}
