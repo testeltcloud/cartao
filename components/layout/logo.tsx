@@ -25,17 +25,24 @@ export function Logo({
           rx="9"
           className="fill-ink"
         />
-        <path
-          d="M11 9.5h7.2a4.3 4.3 0 0 1 0 8.6H14v4.4"
-          stroke="white"
-          strokeWidth="2.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="22.2" cy="13.8" r="1.5" className="fill-accent" />
+        <text
+          x="16"
+          y="21"
+          textAnchor="middle"
+          className="fill-white"
+          style={{
+            fontSize: "13px",
+            fontWeight: 700,
+            letterSpacing: "-0.3px",
+            fontFamily: "var(--font-sans), ui-sans-serif, system-ui, sans-serif",
+          }}
+        >
+          LT
+        </text>
+        <circle cx="24.5" cy="9.5" r="1.6" className="fill-accent" />
       </svg>
       {showWordmark && (
-        <span className="text-lg font-semibold tracking-tight">Pagare</span>
+        <span className="text-lg font-semibold tracking-tight">LTCard</span>
       )}
     </span>
   );

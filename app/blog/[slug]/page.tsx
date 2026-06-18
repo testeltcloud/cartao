@@ -38,7 +38,7 @@ export default async function ArticlePage({ params }: Params) {
     <>
       <Header />
       <main className="flex-1">
-        <article className="pt-32 pb-20 sm:pt-36 lg:pt-40">
+        <article className="pt-24 pb-16 sm:pt-28">
           <Container className="max-w-3xl">
             <Link
               href="/blog"

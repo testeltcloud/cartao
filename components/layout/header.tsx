@@ -2,25 +2,33 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "./logo";
 import { Button } from "@/components/ui/button";
 
-// Âncoras com prefixo "/" para funcionar a partir de qualquer rota (ex.: /blog).
+const SOLUCOES = [
+  { label: "Conciliação", href: "/solucoes/conciliacao" },
+  { label: "POS e TEF", href: "/solucoes/pos-e-tef" },
+  { label: "Antifraude", href: "/solucoes/antifraude" },
+  { label: "Orquestração de Pagamento", href: "/solucoes/orquestracao" },
+  { label: "Registradora de Recebíveis", href: "/solucoes/registradora" },
+];
+
 const NAV = [
-  { label: "Plataforma", href: "/#para-quem" },
-  { label: "White Label", href: "/#white-label" },
-  { label: "Comercial", href: "/#comercial" },
-  { label: "Conciliação", href: "/#conciliacao" },
-  { label: "IA & Risco", href: "/#ia" },
-  { label: "Tecnologia", href: "/#tecnologia" },
+  { label: "Início", href: "/" },
+  { label: "Institucional", href: "/institucional" },
+  { label: "Produtos", href: "/produtos" },
+  { label: "Soluções", href: "/solucoes", children: SOLUCOES },
   { label: "Blog", href: "/blog" },
+  { label: "Suporte", href: "/suporte" },
 ];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -37,6 +45,9 @@ export function Header() {
     };
   }, [open]);
 
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div
@@ -48,31 +59,74 @@ export function Header() {
         )}
       >
         <div className="container-page flex h-16 items-center justify-between lg:h-18">
-          <Link href="/" className="shrink-0" aria-label="Pagare — início">
+          <Link href="/" className="shrink-0" aria-label="LTCard — início">
             <Logo />
           </Link>
 
-          <nav className="hidden items-center gap-1 lg:flex">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-full px-3.5 py-2 text-sm text-muted transition-colors hover:bg-surface hover:text-ink"
-              >
-                {item.label}
-              </Link>
-            ))}
+          {/* Navegação desktop */}
+          <nav className="hidden items-center gap-0.5 lg:flex">
+            {NAV.map((item) =>
+              item.children ? (
+                <div key={item.href} className="group relative">
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      "inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm transition-colors hover:bg-surface hover:text-ink",
+                      isActive(item.href) ? "text-ink" : "text-muted"
+                    )}
+                  >
+                    {item.label}
+                    <ChevronDown
+                      className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180"
+                      aria-hidden
+                    />
+                  </Link>
+                  {/* Painel do dropdown (CSS hover + focus-within) */}
+                  <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 translate-y-1 pt-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                    <div className="overflow-hidden rounded-2xl border border-line bg-background p-2 shadow-lift">
+                      {item.children.map((c) => (
+                        <Link
+                          key={c.href}
+                          href={c.href}
+                          className={cn(
+                            "block rounded-xl px-3 py-2.5 text-sm transition-colors hover:bg-surface",
+                            isActive(c.href)
+                              ? "bg-surface text-ink"
+                              : "text-ink-soft"
+                          )}
+                        >
+                          {c.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "rounded-full px-3 py-2 text-sm transition-colors hover:bg-surface hover:text-ink",
+                    isActive(item.href) ? "text-ink" : "text-muted"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
           </nav>
 
+          {/* CTAs desktop */}
           <div className="hidden items-center gap-2 lg:flex">
-            <Button href="/#contato" variant="ghost" size="sm">
-              Falar com Especialista
+            <Button href="/entrar" variant="ghost" size="sm">
+              Entrar
             </Button>
-            <Button href="/#contato" variant="primary" size="sm">
-              Solicitar Demonstração
+            <Button href="/contato" variant="primary" size="sm">
+              Fale Conosco
             </Button>
           </div>
 
+          {/* Botão mobile */}
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -85,7 +139,7 @@ export function Header() {
         </div>
       </div>
 
-      {/* Menu mobile — animação de altura via grid-rows (CSS puro) */}
+      {/* Menu mobile */}
       <div
         className={cn(
           "grid overflow-hidden bg-background transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden",
@@ -95,33 +149,60 @@ export function Header() {
         )}
       >
         <div className="min-h-0 overflow-hidden">
-          <div className="container-page flex flex-col gap-1 py-4">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="rounded-xl px-3 py-3 text-base text-ink-soft transition-colors hover:bg-surface"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div className="mt-3 flex flex-col gap-2">
+          <div className="container-page max-h-[calc(100vh-4rem)] overflow-y-auto py-4">
+            <nav className="flex flex-col gap-1">
+              {NAV.map((item) =>
+                item.children ? (
+                  <div key={item.href} className="py-1">
+                    <Link
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className="rounded-xl px-3 py-3 text-base font-medium text-ink"
+                    >
+                      {item.label}
+                    </Link>
+                    <div className="mt-1 ml-3 flex flex-col gap-0.5 border-l border-line pl-3">
+                      {item.children.map((c) => (
+                        <Link
+                          key={c.href}
+                          href={c.href}
+                          onClick={() => setOpen(false)}
+                          className="rounded-lg px-3 py-2 text-sm text-muted transition-colors hover:bg-surface hover:text-ink"
+                        >
+                          {c.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl px-3 py-3 text-base text-ink-soft transition-colors hover:bg-surface"
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
+            </nav>
+
+            <div className="mt-4 flex flex-col gap-2">
               <Button
-                href="/#contato"
+                href="/entrar"
                 variant="outline"
                 size="md"
                 onClick={() => setOpen(false)}
               >
-                Falar com Especialista
+                Entrar
               </Button>
               <Button
-                href="/#contato"
+                href="/contato"
                 variant="primary"
                 size="md"
                 onClick={() => setOpen(false)}
               >
-                Solicitar Demonstração
+                Fale Conosco
               </Button>
             </div>
           </div>

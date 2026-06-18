@@ -15,7 +15,7 @@ export function BlogIndex({ page }: { page: number }) {
       <Header />
       <main className="flex-1">
         {/* Cabeçalho da seção */}
-        <section className="border-b border-line bg-surface pt-32 pb-14 sm:pt-36 lg:pt-40">
+        <section className="border-b border-line bg-surface pt-24 pb-12 sm:pt-28">
           <Container>
             <FadeIn className="max-w-3xl">
               <Eyebrow className="mb-5">Blog</Eyebrow>

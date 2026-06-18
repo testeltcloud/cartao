@@ -9,18 +9,18 @@ const sans = Inter({
   display: "swap",
 });
 
-const siteName = "Pagare — Plataforma de Operações de Pagamento";
+const siteName = "LTCard — Plataforma de Operações de Pagamento";
 const siteDescription =
   "Lance e escale sua subadquirente, fintech ou operação White Label em minutos. Gestão de pagamentos, conciliação, compliance, vendas e IA de expansão comercial em uma plataforma só.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pagare.com.br"),
+  metadataBase: new URL("https://LTCard.com.br"),
   title: {
     default: siteName,
-    template: "%s — Pagare",
+    template: "%s — LTCard",
   },
   description: siteDescription,
-  applicationName: "Pagare",
+  applicationName: "LTCard",
   keywords: [
     "subadquirente",
     "white label pagamentos",
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     "pré-compliance",
     "IA expansão comercial",
   ],
-  authors: [{ name: "Pagare" }],
+  authors: [{ name: "LTCard" }],
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    siteName: "Pagare",
+    siteName: "LTCard",
     title: siteName,
     description: siteDescription,
-    url: "https://pagare.com.br",
+    url: "https://LTCard.com.br",
   },
   twitter: {
     card: "summary_large_image",
@@ -60,6 +60,7 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       className={`${sans.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className="min-h-full bg-background text-ink flex flex-col overflow-x-hidden">

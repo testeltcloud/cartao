@@ -1,4 +1,4 @@
-# Pagare — Plataforma de Operações de Pagamento
+# LTCard — Plataforma de Operações de Pagamento
 
 Landing page de alta performance inspirada em [aditum.com.br](https://www.aditum.com.br/),
 para uma plataforma que permite lançar e escalar operações de pagamento

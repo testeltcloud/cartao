@@ -22,7 +22,7 @@ export const posts: Post[] = [
     excerpt:
       "No ecossistema de pagamentos, a conciliação de recebíveis não é apenas uma tarefa administrativa, mas a base de sustentação da integridade financeira da operação.",
     date: "2026-06-15",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "Conciliação",
   },
   {
@@ -31,7 +31,7 @@ export const posts: Post[] = [
     excerpt:
       "Com a expansão das transações digitais, o link de pagamento consolidou-se como um componente de software crítico para a saúde da operação.",
     date: "2026-06-11",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "Tecnologia",
   },
   {
@@ -40,7 +40,7 @@ export const posts: Post[] = [
     excerpt:
       "A coexistência entre Pix e Boleto não representa uma redundância, mas sim uma simetria estratégica para a gestão de liquidez.",
     date: "2026-06-02",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "Pagamentos",
   },
   {
@@ -49,7 +49,7 @@ export const posts: Post[] = [
     excerpt:
       "Entenda como uma estrutura White Label Master permite criar e distribuir novas operações com marca própria para parceiros e representantes.",
     date: "2026-05-27",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "White Label",
   },
   {
@@ -58,7 +58,7 @@ export const posts: Post[] = [
     excerpt:
       "Detectar comportamentos fora do padrão antes que se tornem problemas é o que separa uma operação reativa de uma operação preventiva.",
     date: "2026-05-20",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "Compliance",
   },
   {
@@ -67,7 +67,7 @@ export const posts: Post[] = [
     excerpt:
       "Modelos de IA cruzam CNAE, volume transacionado e comportamento comercial para revelar regiões e segmentos com maior potencial de TPV.",
     date: "2026-05-14",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "Mercado",
   },
   {
@@ -76,7 +76,7 @@ export const posts: Post[] = [
     excerpt:
       "A leitura estruturada dos arquivos de liquidação é o que garante rastreabilidade completa e redução de divergências no repasse.",
     date: "2026-05-08",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "Conciliação",
   },
   {
@@ -85,7 +85,7 @@ export const posts: Post[] = [
     excerpt:
       "Conectar-se às registradoras deixou de ser opcional. Veja o que muda na arquitetura ao integrar CERC e Núclea de forma nativa.",
     date: "2026-04-30",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "Tecnologia",
   },
   {
@@ -94,7 +94,7 @@ export const posts: Post[] = [
     excerpt:
       "Indicadores em tempo real por vendedor, equipe e região convertem o esforço comercial em um pipeline de crescimento mensurável.",
     date: "2026-04-22",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "Mercado",
   },
   {
@@ -103,7 +103,7 @@ export const posts: Post[] = [
     excerpt:
       "Uma plataforma multiempresa e multiadquirente permite colocar uma nova operação no ar com a sua marca em tempo recorde.",
     date: "2026-04-15",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "White Label",
   },
   {
@@ -112,7 +112,7 @@ export const posts: Post[] = [
     excerpt:
       "Escalabilidade, isolamento por operação e alta disponibilidade: os pilares técnicos que sustentam operações financeiras modernas.",
     date: "2026-04-07",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "Tecnologia",
   },
   {
@@ -121,7 +121,7 @@ export const posts: Post[] = [
     excerpt:
       "Alterações bruscas de TPV e perfis transacionais incompatíveis são sinais que a análise comportamental captura em tempo real.",
     date: "2026-03-31",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "Compliance",
   },
   {
@@ -130,7 +130,7 @@ export const posts: Post[] = [
     excerpt:
       "Distribuir transações entre adquirentes com base em custo e disponibilidade aumenta a taxa de aprovação e reduz o custo por transação.",
     date: "2026-03-24",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "Pagamentos",
   },
   {
@@ -139,7 +139,7 @@ export const posts: Post[] = [
     excerpt:
       "Logs transacionais e trilhas de auditoria completas são o que sustentam a confiança de bancos, parceiros e órgãos reguladores.",
     date: "2026-03-17",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "Conciliação",
   },
   {
@@ -148,7 +148,7 @@ export const posts: Post[] = [
     excerpt:
       "Mapear a concentração de estabelecimentos e o potencial de TPV por região transforma a prospecção em uma decisão orientada por dados.",
     date: "2026-03-10",
-    author: "Pagare Conteúdo",
+    author: "LTCard Conteúdo",
     category: "Mercado",
   },
 ];

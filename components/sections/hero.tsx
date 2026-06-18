@@ -50,7 +50,7 @@ export function Hero() {
             >
               Crie sua própria subadquirente, fintech ou operação white label em
               minutos. Uma plataforma completa para gestão de pagamentos,
-              conciliação, compliance, vendas e crescimento comercial — pronta
+              conciliação, compliance, vendas e crescimento comercial, pronta
               para operar com a sua marca.
             </p>
 
@@ -67,11 +67,11 @@ export function Hero() {
               className="anim-fade-up mt-9 flex flex-col gap-3 sm:flex-row"
               style={anim(0.32)}
             >
-              <Button href="#contato" variant="primary" size="lg">
+              <Button href="/contato" variant="primary" size="lg">
                 Solicitar Demonstração
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Button>
-              <Button href="#contato" variant="outline" size="lg">
+              <Button href="/contato" variant="outline" size="lg">
                 Falar com Especialista
               </Button>
             </div>

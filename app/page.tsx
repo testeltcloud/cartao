@@ -15,7 +15,7 @@ import { CtaFinal } from "@/components/sections/cta";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Pagare",
+  name: "LTCard",
   applicationCategory: "FinanceApplication",
   operatingSystem: "Web",
   description:

@@ -30,12 +30,12 @@ export function CtaFinal() {
             </p>
 
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button href="#" variant="onDark" size="lg">
+              <Button href="/contato" variant="onDark" size="lg">
                 Solicitar Demonstração
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Button>
               <Button
-                href="#"
+                href="/contato"
                 size="lg"
                 className="border border-white/20 bg-transparent text-white hover:bg-white/10"
               >
