@@ -35,7 +35,7 @@ export default function Home() {
         <Hero />
         {/* Folha que sobe sobre o hero (sticky) ao rolar — topo arredondado +
             sombra dão o efeito de "tela nova" deslizando por cima. */}
-        <div className="relative z-10 -mt-6 overflow-clip rounded-t-[1.75rem] shadow-[0_-22px_50px_-28px_rgba(14,23,38,0.4)] sm:-mt-8 sm:rounded-t-[2.5rem]">
+        <div className="relative z-10 -mt-6 overflow-clip rounded-t-[1.75rem] bg-background shadow-[0_-22px_50px_-28px_rgba(14,23,38,0.4)] sm:-mt-8 sm:rounded-t-[2.5rem]">
           <Audience />
           <WhiteLabel />
           <Commercial />
