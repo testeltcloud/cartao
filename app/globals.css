@@ -190,6 +190,24 @@
   }
 }
 
+/* Spotlight que segue o cursor (cards premium) */
+.spotlight-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(14, 115, 97, 0.16),
+    transparent 62%
+  );
+}
+.spotlight-card:hover .spotlight-glow {
+  opacity: 1;
+}
+
 /* ============================================================
    Reveal on scroll (CSS + IntersectionObserver, sem libs JS)
    Progressive enhancement: só esconde quando há JS (html.js).

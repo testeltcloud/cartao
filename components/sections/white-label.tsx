@@ -1,8 +1,8 @@
 import { Users, Network, Target, Palette } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { Pill } from "@/components/ui/pill";
-import { ImageReveal } from "@/components/ui/image-reveal";
-import { FadeIn, Stagger, StaggerItem, HoverLift } from "@/components/motion";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
+import { FadeIn, Stagger, StaggerItem } from "@/components/motion";
 
 const RECURSOS = [
   {
@@ -68,19 +68,29 @@ export function WhiteLabel() {
         className="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2"
         gap={0.1}
       >
-        {RECURSOS.map((r) => (
+        {RECURSOS.map((r, i) => (
           <StaggerItem key={r.title} y={16}>
-            <HoverLift className="relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-line bg-surface p-6 shadow-soft transition-all duration-300 hover:border-line-strong hover:shadow-lift sm:p-8">
-              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent ring-1 ring-accent/20">
+            <SpotlightCard className="relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-line bg-surface p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lift motion-reduce:transform-none sm:p-8">
+              {/* número fantasma */}
+              <span className="pointer-events-none absolute right-5 top-2 select-none text-[5.5rem] font-bold leading-none text-ink/[0.045] sm:text-[6.5rem]">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              {/* ícone que "acende" no hover */}
+              <div className="relative mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent ring-1 ring-accent/15 transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
                 <r.icon className="h-6 w-6" strokeWidth={1.8} aria-hidden />
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-ink">
+
+              <h3 className="relative text-lg font-semibold text-ink">
                 {r.title}
               </h3>
-              <p className="text-muted leading-relaxed">
+              {/* sublinhado que cresce */}
+              <span className="relative my-3 block h-0.5 w-8 rounded-full bg-accent/40 transition-all duration-300 group-hover:w-16 group-hover:bg-accent" />
+
+              <p className="relative leading-relaxed text-muted">
                 {r.description}
               </p>
-            </HoverLift>
+            </SpotlightCard>
           </StaggerItem>
         ))}
       </Stagger>
