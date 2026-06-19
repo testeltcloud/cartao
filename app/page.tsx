@@ -9,7 +9,6 @@ import { Reconciliation } from "@/components/sections/reconciliation";
 import { AiExpansion } from "@/components/sections/ai-expansion";
 import { Compliance } from "@/components/sections/compliance";
 import { Ecosystem } from "@/components/sections/ecosystem";
-import { Technology } from "@/components/sections/technology";
 import { Differentials } from "@/components/sections/differentials";
 import { CtaFinal } from "@/components/sections/cta";
 
@@ -45,7 +44,6 @@ export default function Home() {
           <AiExpansion />
           <Compliance />
           <Ecosystem />
-          <Technology />
           <Differentials />
           <CtaFinal />
         </div>

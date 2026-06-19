@@ -10,9 +10,11 @@
 !.yarn/releases
 !.yarn/versions
 
-/awesome-design-md
 # testing
 /coverage
+
+# referência local (repo clonado — não versionar)
+/awesome-design-md
 
 # next.js
 /.next/
