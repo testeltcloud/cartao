@@ -13,38 +13,61 @@ export function RevealController() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>(
-      "[data-reveal], [data-stagger]"
-    );
-    if (els.length === 0) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const hasIO = "IntersectionObserver" in window;
 
-    // Sem suporte a IO (ou movimento reduzido) → mostra tudo imediatamente.
-    const reduce = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (reduce || !("IntersectionObserver" in window)) {
-      els.forEach((el) => el.classList.add("is-in"));
-      return;
-    }
+    const io = hasIO
+      ? new IntersectionObserver(
+          (entries, obs) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-in");
+                obs.unobserve(entry.target);
+              }
+            }
+          },
+          { rootMargin: "0px 0px -80px 0px", threshold: 0.01 }
+        )
+      : null;
 
-    const io = new IntersectionObserver(
-      (entries, obs) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-in");
-            obs.unobserve(entry.target);
-          }
+    const observeNode = (el: HTMLElement) => {
+      if (reduce || !hasIO) {
+        el.classList.add("is-in");
+      } else if (!el.classList.contains("is-in") && io) {
+        io.observe(el);
+      }
+    };
+
+    const scanAndObserve = (root: HTMLElement | Document = document) => {
+      const els = root.querySelectorAll<HTMLElement>("[data-reveal], [data-stagger]");
+      els.forEach(observeNode);
+      // If the root itself is a target
+      if (root instanceof HTMLElement && (root.hasAttribute("data-reveal") || root.hasAttribute("data-stagger"))) {
+        observeNode(root);
+      }
+    };
+
+    // Initial scan
+    scanAndObserve();
+
+    // Watch for new elements added to the DOM
+    const mo = new MutationObserver((mutations) => {
+      let shouldScan = false;
+      for (const m of mutations) {
+        if (m.addedNodes.length > 0) {
+          shouldScan = true;
+          break;
         }
-      },
-      { rootMargin: "0px 0px -80px 0px", threshold: 0.01 }
-    );
-
-    els.forEach((el) => {
-      // Já revelado em navegação anterior? ignora.
-      if (!el.classList.contains("is-in")) io.observe(el);
+      }
+      if (shouldScan) scanAndObserve();
     });
 
-    return () => io.disconnect();
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      if (io) io.disconnect();
+      mo.disconnect();
+    };
   }, [pathname]);
 
   return null;

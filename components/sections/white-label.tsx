@@ -7,11 +7,28 @@ import { FadeIn, Stagger, StaggerItem, HoverLift } from "@/components/motion";
 const RECURSOS = [
   {
     icon: Users,
-    text: "Gestão de gestores, vendedores e equipes comerciais",
+    title: "Gestão Hierárquica",
+    description:
+      "Controle total sobre gestores, vendedores e equipes comerciais com diferentes níveis de acesso e comissionamento.",
   },
-  { icon: Network, text: "Estrutura de unidades internas e regionais" },
-  { icon: Target, text: "Acompanhamento de metas e desempenho" },
-  { icon: Palette, text: "Personalização de tema, marca e domínio" },
+  {
+    icon: Network,
+    title: "Múltiplas Unidades",
+    description:
+      "Organize toda a sua operação distribuindo-a em filiais, franquias e unidades de negócios regionais.",
+  },
+  {
+    icon: Target,
+    title: "Acompanhamento de Metas",
+    description:
+      "Dashboards precisos para medir o desempenho do seu time, acompanhando volume de vendas e alcance de metas em tempo real.",
+  },
+  {
+    icon: Palette,
+    title: "Identidade Exclusiva",
+    description:
+      "Muito além de um logo: configure temas, paleta de cores, tipografia e opere com o seu próprio domínio (URL).",
+  },
 ];
 
 export function WhiteLabel() {
@@ -38,7 +55,7 @@ export function WhiteLabel() {
       </FadeIn>
 
       {/* Showcase — ênfase total na imagem */}
-      <FadeIn delay={0.1} className="relative mx-auto mt-14 max-w-5xl px-4">
+      <FadeIn delay={0.1} className="relative mx-auto mt-14 max-w-7xl px-0">
         <img
           src="/image/Audience/quarto telas.svg"
           alt="Telas reais do sistema com personalização por cliente"
@@ -46,19 +63,22 @@ export function WhiteLabel() {
         />
       </FadeIn>
 
-      {/* Recursos em linha */}
+      {/* Recursos detalhados em cards premium */}
       <Stagger
-        className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
-        gap={0.06}
+        className="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2"
+        gap={0.1}
       >
         {RECURSOS.map((r) => (
-          <StaggerItem key={r.text} y={12}>
-            <HoverLift className="h-full rounded-xl border border-line bg-background p-5 transition-colors duration-300 hover:border-line-strong hover:bg-surface hover:shadow-soft">
-              <span className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-soft text-accent">
-                <r.icon className="h-5 w-5" strokeWidth={1.7} aria-hidden />
-              </span>
-              <p className="text-sm font-medium leading-snug text-ink-soft">
-                {r.text}
+          <StaggerItem key={r.title} y={16}>
+            <HoverLift className="relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-line bg-surface p-6 shadow-soft transition-all duration-300 hover:border-line-strong hover:shadow-lift sm:p-8">
+              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent ring-1 ring-accent/20">
+                <r.icon className="h-6 w-6" strokeWidth={1.8} aria-hidden />
+              </div>
+              <h3 className="mb-3 text-lg font-semibold text-ink">
+                {r.title}
+              </h3>
+              <p className="text-muted leading-relaxed">
+                {r.description}
               </p>
             </HoverLift>
           </StaggerItem>
