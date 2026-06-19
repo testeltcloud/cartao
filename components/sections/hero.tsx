@@ -4,6 +4,8 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Pill } from "@/components/ui/pill";
 import { MediaPlaceholder } from "@/components/ui/media-placeholder";
+import { CountUp } from "@/components/ui/count-up";
+import { ScrollRecede } from "@/components/scroll-recede";
 // Vídeo do hero temporariamente desativado (componente mantido para reativar depois).
 // import { HeroVideo } from "./hero-video";
 
@@ -24,14 +26,14 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pt-32 pb-20 sm:pt-36 lg:pt-44 lg:pb-28"
+      className="sticky top-0 z-0 overflow-hidden pt-32 pb-20 sm:pt-36 lg:pt-44 lg:pb-28"
     >
       {/* Fundo sutil — grade pontilhada + clarão suave, sem gradiente forte */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_30%,transparent_75%)]" />
       <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-accent-soft/70 blur-3xl" />
 
-      <Container>
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+      <ScrollRecede className="hero-recede"><Container>
+        <div className="lg:-mt-10 grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           {/* Coluna de texto */}
           <div className="max-w-2xl">
             <div className="anim-fade-up" style={anim(0)}>
@@ -42,7 +44,7 @@ export function Hero() {
             </div>
 
             <h1
-              className="anim-fade-up text-display font-semibold text-ink"
+              className="anim-fade-up text-[clamp(2.125rem,4.4vw,4.5rem)] font-semibold leading-[1.07] tracking-[-0.02em] text-ink"
               style={anim(0.08)}
             >
               Gestão completa para operações de cartões, sub-adquirente e{" "}
@@ -50,7 +52,7 @@ export function Hero() {
             </h1>
 
             <p
-              className="anim-fade-up mt-6 max-w-xl text-lg leading-relaxed text-muted"
+              className="anim-fade-up mt-6 max-w-xl text-[clamp(1rem,1.1vw,1.125rem)] leading-relaxed text-muted"
               style={anim(0.16)}
             >
               Transforme sua marca em uma operação completa de cartões. Gerencie
@@ -83,7 +85,7 @@ export function Hero() {
           </div>
 
           {/* Coluna visual — slot principal de mídia/animação */}
-          <div className="anim-fade-up relative" style={anim(0.25)}>
+          <div className="anim-fade-up relative lg:-mt-50" style={anim(0.25)}>
             <MediaPlaceholder kind="animation" ratio="18/12" className="shadow-lift">
               <Image
                src="/Gemini_Generated_Image_mb46dvmb46dvmb46.png"
@@ -97,21 +99,21 @@ export function Hero() {
 
             {/* Cards flutuantes — placeholders para microanimações/dados */}
             <FloatingCard
-              className="left-4 top-4"
+              className="-left-3 -top-3 sm:-left-5 sm:-top-5"
               icon={TrendingUp}
               title="TPV em tempo real"
-              value="R$ 0,00"
+              value={<CountUp to={1284503.9} live />}
               delay={0.6}
             />
             <FloatingCard
-              className="right-4 bottom-4"
+              className="-right-3 -bottom-3 sm:-right-5 sm:-bottom-5"
               icon={ShieldCheck}
               title="Pré-compliance"
               value="Monitorando"
               delay={0.75}
             />
             <FloatingCard
-              className="left-4 bottom-4"
+              className="-left-3 bottom-8 sm:-left-5 sm:bottom-12"
               icon={Layers}
               title="Operações White Label"
               value="Multiempresa"
@@ -119,7 +121,7 @@ export function Hero() {
             />
           </div>
         </div>
-      </Container>
+      </Container></ScrollRecede>
     </section>
   );
 }
@@ -134,22 +136,22 @@ function FloatingCard({
   className?: string;
   icon: React.ElementType;
   title: string;
-  value: string;
+  value: React.ReactNode;
   delay: number;
 }) {
   return (
     <div
       style={anim(delay)}
-      className={`anim-fade-up absolute hidden items-center gap-3 rounded-xl border border-line bg-background/90 px-3.5 py-3 shadow-lift backdrop-blur-sm lg:flex ${className}`}
+      className={`anim-fade-up absolute flex items-center gap-2 rounded-xl border border-white/50 bg-background/40 px-2.5 py-1.5 shadow-[0_10px_30px_-10px_rgba(14,23,38,0.5),inset_0_1px_0_0_rgba(255,255,255,0.65)] backdrop-blur-2xl backdrop-saturate-150 [text-shadow:0_1px_2px_rgba(255,255,255,0.45)] sm:gap-3 sm:rounded-2xl sm:px-4 sm:py-3 ${className}`}
     >
-      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent">
-        <Icon className="h-4 w-4" strokeWidth={1.8} aria-hidden />
+      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-accent-soft text-accent shadow-sm sm:h-9 sm:w-9 sm:rounded-lg">
+        <Icon className="h-3 w-3 sm:h-4 sm:w-4" strokeWidth={1.8} aria-hidden />
       </span>
       <div className="leading-tight">
-        <p className="text-[0.7rem] uppercase tracking-wide text-faint">
+        <p className="text-[0.5rem] font-semibold uppercase tracking-wide text-ink-soft sm:text-[0.7rem]">
           {title}
         </p>
-        <p className="text-sm font-semibold text-ink">{value}</p>
+        <p className="text-[0.65rem] font-bold text-ink sm:text-sm">{value}</p>
       </div>
     </div>
   );

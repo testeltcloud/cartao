@@ -70,7 +70,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
-      <body className="min-h-full bg-background text-ink flex flex-col overflow-x-hidden">
+      <body className="min-h-full bg-background text-ink flex flex-col overflow-x-clip">
         {/* Progressive enhancement: marca que há JS antes da primeira pintura,
             para que as animações de reveal só escondam conteúdo quando puderem
             revelá-lo. Sem JS, tudo aparece normalmente. */}

@@ -67,12 +67,12 @@ export const solutions: Solution[] = [
     navLabel: "Estrutura White Label",
     eyebrow: "Estrutura White Label",
     title: "Opere com a sua marca em uma estrutura hierárquica",
-    lead: "Opere com a sua marca e organize toda a operação em uma estrutura multiempresa e hierárquica: subadquirentes, white labels, operadores e estabelecimentos, com personalização de marca, tema e domínio.",
+    lead: "Opere com a sua marca e organize toda a operação em uma estrutura multiempresa e hierárquica: sub-adquirente, white labels, operadores e estabelecimentos, com personalização de marca, tema e domínio.",
     intro:
       "Cada grupo opera em um ambiente isolado, com hierarquia própria — do white label ao grupo econômico e ao estabelecimento — e identidade visual sob a sua marca.",
     features: [
       { icon: Boxes, title: "Multiempresa", desc: "White label, grupo econômico e estabelecimento em uma só hierarquia." },
-      { icon: Network, title: "Hierarquia própria", desc: "Subadquirentes, white labels, operadores e estabelecimentos por nível." },
+      { icon: Network, title: "Hierarquia própria", desc: "sub-adquirente, white labels, operadores e estabelecimentos por nível." },
       { icon: Building2, title: "Unidades internas e regionais", desc: "Organize a operação por unidades e regiões." },
       { icon: Palette, title: "Personalização de marca", desc: "Tema, logo e identidade visual sob a sua marca." },
       { icon: Globe, title: "Domínio próprio", desc: "Cada operação no seu próprio domínio." },

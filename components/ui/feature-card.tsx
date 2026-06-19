@@ -18,17 +18,19 @@ export function FeatureCard({
   return (
     <HoverLift
       className={cn(
-        "h-full rounded-2xl border p-6 transition-colors duration-300",
+        "group h-full rounded-2xl border p-6 transition-colors duration-300",
         onDark
-          ? "border-white/10 bg-white/[0.03] hover:border-white/20"
-          : "border-line bg-background hover:border-line-strong hover:shadow-soft",
+          ? "border-white/10 bg-white/[0.03] hover:border-white/20 hover:bg-white/[0.05]"
+          : "border-line bg-background hover:border-line-strong hover:bg-surface hover:shadow-soft",
         className
       )}
     >
       <span
         className={cn(
-          "mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl",
-          onDark ? "bg-white/[0.06] text-white" : "bg-surface text-accent"
+          "mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl transition-colors duration-300",
+          onDark
+            ? "bg-white/[0.06] text-white group-hover:bg-white/[0.1]"
+            : "bg-surface text-accent group-hover:bg-background group-hover:shadow-soft"
         )}
       >
         <Icon className="h-5 w-5" strokeWidth={1.7} aria-hidden />

@@ -4,10 +4,9 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { FeatureCard } from "@/components/ui/feature-card";
 import { PageHero } from "@/components/page/page-hero";
 import { CtaBand } from "@/components/solutions/solution-page";
-import { Stagger, StaggerItem } from "@/components/motion";
+import { HoverLift, Stagger, StaggerItem } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Suporte",
@@ -44,6 +43,35 @@ const FAQ = [
   },
 ];
 
+function SupportCard({
+  icon: Icon,
+  title,
+  desc,
+}: {
+  icon: React.ElementType;
+  title: string;
+  desc: string;
+}) {
+  return (
+    <HoverLift className="group h-full overflow-hidden rounded-2xl border border-line bg-background p-2 transition-colors duration-300 hover:border-line-strong hover:bg-surface hover:shadow-soft">
+      {/* Área de imagem — gradiente roxo sutil atrás do ícone */}
+      <div className="relative flex h-32 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-violet-500/[0.10] via-purple-500/[0.06] to-transparent">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(140px_90px_at_50%_45%,rgba(139,92,246,0.16),transparent_72%)]"
+          aria-hidden
+        />
+        <span className="relative inline-flex h-12 w-12 items-center justify-center rounded-xl bg-background/80 text-accent shadow-soft ring-1 ring-line backdrop-blur-sm">
+          <Icon className="h-6 w-6" strokeWidth={1.6} aria-hidden />
+        </span>
+      </div>
+      <div className="px-3 pb-4 pt-5">
+        <h3 className="text-base font-semibold text-ink">{title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted">{desc}</p>
+      </div>
+    </HoverLift>
+  );
+}
+
 export default function SuportePage() {
   return (
     <>
@@ -60,7 +88,7 @@ export default function SuportePage() {
           <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {RECURSOS.map((r) => (
               <StaggerItem key={r.title}>
-                <FeatureCard icon={r.icon} title={r.title} description={r.desc} />
+                <SupportCard icon={r.icon} title={r.title} desc={r.desc} />
               </StaggerItem>
             ))}
           </Stagger>

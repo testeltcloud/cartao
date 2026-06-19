@@ -87,7 +87,7 @@ export default function InstitucionalPage() {
                 <p>
                   Da captura ao repasse, do monitoramento de risco à
                   estruturação de recebíveis, entregamos a base tecnológica para
-                  subadquirentes, fintechs, bancos digitais e redes comerciais
+                  sub-adquirente, fintechs, bancos digitais e redes comerciais
                   crescerem com previsibilidade.
                 </p>
               </FadeIn>

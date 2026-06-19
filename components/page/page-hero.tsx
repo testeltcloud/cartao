@@ -28,10 +28,19 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "border-b border-line pt-20 pb-12 sm:pt-20 lg:pb-14",
+        "relative overflow-hidden border-b border-line pt-20 pb-12 sm:pt-20 lg:pb-14",
         tone === "surface" ? "bg-surface" : "bg-background"
       )}
     >
+      {/* Fundo atmosférico — mesmo padrão do hero principal, em escala menor */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_60%_80%_at_50%_0%,#000_25%,transparent_70%)]"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -top-28 left-1/2 -z-10 h-[320px] w-[640px] -translate-x-1/2 rounded-full bg-accent-soft/60 blur-3xl"
+        aria-hidden
+      />
       <Container>
         <div
           className={cn(
