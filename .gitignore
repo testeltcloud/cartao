@@ -42,6 +42,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# vídeo original 4K (166MB — usar a versão web comprimida; excede limite do GitHub)
-/public/videoMaquininha.mp4

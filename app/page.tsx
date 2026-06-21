@@ -32,11 +32,18 @@ export default function Home() {
       />
       <Header />
       <main className="flex-1">
-        <Hero />
-        {/* Folha que sobe sobre o hero (sticky) ao rolar — topo arredondado +
-            sombra dão o efeito de "tela nova" deslizando por cima. */}
-        <div className="relative z-10 -mt-6 overflow-clip rounded-t-[1.75rem] bg-background shadow-[0_-22px_50px_-28px_rgba(14,23,38,0.4)] sm:-mt-8 sm:rounded-t-[2.5rem]">
-          <Audience />
+        {/* Zona de revelação: o hero fica preso (sticky) só enquanto a 1ª seção
+            sobe por cima dele. Ao final desta zona o hero é liberado — então ele
+            NÃO fica atrás das seções seguintes (sem vazamento). */}
+        <div className="relative isolate">
+          <Hero />
+          <div className="relative z-10 -mt-6 overflow-clip rounded-t-[1.75rem] bg-background shadow-[0_-22px_50px_-28px_rgba(14,23,38,0.4)] sm:-mt-8 sm:rounded-t-[2.5rem]">
+            <Audience />
+          </div>
+        </div>
+
+        {/* Resto do site em fluxo normal — hero já liberado, nada atrás. */}
+        <div className="relative bg-background">
           <WhiteLabel />
           <Commercial />
           <Financial />

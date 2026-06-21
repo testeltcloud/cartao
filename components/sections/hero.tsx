@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Pill } from "@/components/ui/pill";
 import { MediaPlaceholder } from "@/components/ui/media-placeholder";
 import { CountUp } from "@/components/ui/count-up";
-import { ScrollRecede } from "@/components/scroll-recede";
 // Vídeo do hero temporariamente desativado (componente mantido para reativar depois).
 // import { HeroVideo } from "./hero-video";
 
@@ -32,7 +31,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_30%,transparent_75%)]" />
       <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-accent-soft/70 blur-3xl" />
 
-      <ScrollRecede className="hero-recede"><Container>
+      <Container>
         <div className="lg:-mt-10 grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           {/* Coluna de texto */}
           <div className="max-w-2xl">
@@ -121,7 +120,7 @@ export function Hero() {
             />
           </div>
         </div>
-      </Container></ScrollRecede>
+      </Container>
     </section>
   );
 }
