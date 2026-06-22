@@ -150,27 +150,6 @@
   }
 }
 
-/* ============================================================
-   Esteira (Compliance) — painel revelado em "wipe" esquerda→direita
-   ============================================================ */
-html.js .wipe-in {
-  clip-path: inset(0 100% 0 0);
-}
-html.js [data-reveal].is-in .wipe-in {
-  animation: wipe-in 1s var(--ease-out-soft) 0.1s forwards;
-}
-@keyframes wipe-in {
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  html.js .wipe-in {
-    clip-path: none;
-    animation: none;
-  }
-}
-
 /* Chip de risco "caindo" do filtro para o tray de bloqueados */
 .risk-drop {
   animation: risk-drop 4.2s ease-in-out infinite;

@@ -1,6 +1,7 @@
 import { Sparkles, Check } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { ImageReveal } from "@/components/ui/image-reveal";
+import { GsapParallax } from "@/components/gsap-parallax";
 import { FadeIn, Stagger, StaggerItem } from "@/components/motion";
 import { Pill } from "@/components/ui/pill";
 
@@ -146,12 +147,14 @@ export function AiExpansion() {
           </div>
 
           <FadeIn delay={0.1} className="relative lg:mt-12">
-            <ImageReveal
-              src="/image/Audience/ia2.jpeg"
-              alt="Inteligência Artificial analisando dados de mercado"
-              ratio="16/9"
-              className="rounded-[2rem] sm:rounded-[2.5rem]"
-            />
+            <GsapParallax amount={7}>
+              <ImageReveal
+                src="/image/Audience/ia2.jpeg"
+                alt="Inteligência Artificial analisando dados de mercado"
+                ratio="16/9"
+                className="rounded-[2rem] sm:rounded-[2.5rem]"
+              />
+            </GsapParallax>
           </FadeIn>
         </div>
       </Container>

@@ -54,12 +54,15 @@ export function WhiteLabel() {
         </p>
       </FadeIn>
 
-      {/* Showcase — ênfase total na imagem */}
-      <FadeIn delay={0.1} className="relative mx-auto mt-14 max-w-7xl px-0">
+      {/* Showcase — imagem grudada na direita da página (full-bleed à direita) */}
+      <FadeIn
+        delay={0.1}
+        className="relative mt-14 flex justify-end mr-[calc(50%-50vw)]"
+      >
         <img
-          src="/image/Audience/quarto telas.svg"
+          src="/image/whitelabel1.svg"
           alt="Telas reais do sistema com personalização por cliente"
-          className="mx-auto w-full h-auto"
+          className="block h-auto w-full max-w-[78rem] drop-shadow-[0_40px_60px_rgba(14,23,38,0.38)]"
         />
       </FadeIn>
 
