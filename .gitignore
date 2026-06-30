@@ -42,3 +42,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# vídeo 4K original (usar a versão web comprimida video-cartao-web.mp4)
+/public/video cartao.mp4
+
+# pastas de agentes (locais, não versionar)
+/.agent/
+/.agents/

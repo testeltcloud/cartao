@@ -10,6 +10,12 @@
   --color-surface: #f6f7f9;
   --color-surface-2: #eef1f4;
 
+  /* Monolith Theme */
+  --color-monolith: #0a0a0a;
+  --color-monolith-soft: #141414;
+  --color-canvas-bright: #fdfdfc;
+  --color-accent-neon: #00ff66;
+
   /* Tinta / texto */
   --color-ink: #0e1726;
   --color-ink-soft: #26303f;
@@ -148,6 +154,14 @@
     );
     background-size: 26px 26px;
   }
+
+  /* Monolith Blueprint Hairlines */
+  .blueprint-grid {
+    background-image: 
+      linear-gradient(to right, rgba(10, 10, 10, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(10, 10, 10, 0.06) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+  }
 }
 
 /* Chip de risco "caindo" do filtro para o tray de bloqueados */
@@ -247,6 +261,22 @@
   }
 }
 
+/* Linhas de fluxo (overlay do vídeo — Gestão Financeira) */
+.flow-dash {
+  stroke-dasharray: 6 6;
+  animation: dash-flow 0.5s linear infinite;
+}
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-dash {
+    animation: none;
+  }
+}
+
 /* Skeleton shimmer — placeholder de carregamento de mídia */
 .skeleton-shimmer {
   background-image: linear-gradient(
@@ -288,6 +318,51 @@
 }
 .spotlight-card:hover .spotlight-glow {
   opacity: 1;
+}
+
+/* Spotlight reverso para o Monolith */
+.spotlight-glow-monolith {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(
+    400px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(0, 255, 102, 0.08),
+    transparent 60%
+  );
+}
+.monolith-card:hover .spotlight-glow-monolith,
+.monolith-hero:hover .spotlight-glow-monolith {
+  opacity: 1;
+}
+
+/* Animações Prism Hero (Estrutura White Label) */
+@keyframes prism-layer-2 {
+  0%, 100% { transform: translateY(0); }
+  11%, 66% { transform: translateY(-40px); }
+  77% { transform: translateY(0); }
+}
+@keyframes prism-layer-3 {
+  0%, 100% { transform: translateY(0); }
+  11%, 66% { transform: translateY(-80px); }
+  77% { transform: translateY(0); }
+}
+@keyframes prism-layer-4 {
+  0%, 100% { transform: translateY(0); }
+  11%, 66% { transform: translateY(-120px); }
+  77% { transform: translateY(0); }
+}
+.animate-prism-layer-2 {
+  animation: prism-layer-2 4.5s ease-in-out infinite;
+}
+.animate-prism-layer-3 {
+  animation: prism-layer-3 4.5s ease-in-out infinite;
+}
+.animate-prism-layer-4 {
+  animation: prism-layer-4 4.5s ease-in-out infinite;
 }
 
 /* ============================================================

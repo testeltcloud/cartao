@@ -33,8 +33,8 @@ const RECURSOS = [
 
 export function WhiteLabel() {
   return (
-    <Section id="white-label" containerClassName="max-w-[84rem] px-4 sm:px-6">
-      <FadeIn className="mx-auto flex max-w-3xl flex-col items-center text-center">
+    <Section id="white-label" >
+      {/* <FadeIn className="mx-auto flex max-w-3xl flex-col items-center text-center">
         <Pill tone="accent" className="mb-6">
           <Palette className="h-3.5 w-3.5" aria-hidden />
           White Label
@@ -52,19 +52,19 @@ export function WhiteLabel() {
             personalizadas por cliente
           </strong>.
         </p>
-      </FadeIn>
+      </FadeIn> */}
 
       {/* Showcase — imagem grudada na direita da página (full-bleed à direita) */}
-      <FadeIn
+      {/* <FadeIn
         delay={0.1}
-        className="relative mt-14 flex justify-end mr-[calc(50%-50vw)]"
-      >
+        className="relative flex justify-end "
+      > */}
         <img
-          src="/image/whitelabel1.svg"
+          src="/image/image.png"
           alt="Telas reais do sistema com personalização por cliente"
-          className="block h-auto w-full max-w-[78rem] drop-shadow-[0_40px_60px_rgba(14,23,38,0.38)]"
+          className="block h-auto w-full drop-shadow-[0_40px_60px_rgba(14,23,38,0.38)]"
         />
-      </FadeIn>
+      {/* </FadeIn> */}
 
       {/* Recursos detalhados em cards premium */}
       <Stagger
